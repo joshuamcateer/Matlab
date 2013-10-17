@@ -1,0 +1,28 @@
+%%JoshuaM.McAteer
+clear all
+ Lim = input('largest number to be prime tested ');
+ M = 2;
+ x = 2;
+ g = 0;
+ while(x<=Lim)
+ c = 0;
+y = 2;
+    while(((x).^0.5+1)>y)
+    z = x/y;
+    zr = round(z);
+        if((z-zr)==0)
+            c = c + 1;
+        end
+    y = y + 1;
+    end
+    if(c==0)
+   % disp([num2str(x),' is prime'])
+    g = g + 1;
+    M = horzcat(M,x);   
+    else
+  %  disp([num2str(x),' is composite'])
+    end
+     x = x + 1;     
+ end
+csvwrite('prime.dat',double(M))
+type prime.dat
